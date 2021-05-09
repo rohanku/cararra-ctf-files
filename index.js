@@ -3,7 +3,7 @@ var fs = require("fs");
 var path = require("path");
 var url = require("url"); // built-in utility
 var scripts = {
-  "cracked-4.js": require("./cracked-4"),
+  "cracked-4": require("./cracked-4"),
 };
 
 const hostname = "0.0.0.0";
@@ -23,13 +23,6 @@ http
       case ".txt":
         contentType = "text/plain";
         break;
-      case ".js":
-        response.writeHead(200, { "Content-Type": "text/html" });
-        response.end(
-          scripts[path.basename(filePath)].page(request.url),
-          "utf-8"
-        );
-        return;
       case ".css":
         contentType = "text/css";
         break;
@@ -45,7 +38,14 @@ http
       case ".wav":
         contentType = "audio/wav";
         break;
-      case ".secret":
+      default:
+        if (!(path.basename(filePath) in scripts))
+          return;
+        response.writeHead(200, { "Content-Type": "text/html" });
+        response.end(
+          scripts[path.basename(filePath)].page(request.url),
+          "utf-8"
+        );
         return;
     }
 
