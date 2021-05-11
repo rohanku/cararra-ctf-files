@@ -5,7 +5,12 @@ const flag = "cararraCTF{d0nt_d1SP4y_uSeR_!npUt_cuz_XSS}";
 
 async function send(url) {
   (async () => {
-      const browser = await puppeteer.launch();
+      const browser = await puppeteer.launch({
+        args: [
+          '--no-sandbox',
+          '--disable-setuid-sandbox',
+        ],
+      });
       const page = await browser.newPage();
     console.log(url)
       await page.setCookie({name: "flag", value: flag, domain: 'cararra-ctf-files.herokuapp.com:3002'});
