@@ -5,7 +5,7 @@ let express = require("express");
 let app = express();
 
 //basic route for homepage
-app.get("/", (req, res) => {
+app.get("/cross-the-site", (req, res) => {
   html = `
       <!DOCTYPE html>
       <html>
@@ -39,10 +39,11 @@ app.get("/", (req, res) => {
   res.send(html);
 });
 
+const port = process.env.PORT || 3001;
 //server listens to port 3002
-app.listen(3002, (err) => {
+app.listen(port, (err) => {
   if (err) throw err;
-  console.log("listening on port 3002");
+  console.log(`listening on port ${port}`);
 });
 }
 
