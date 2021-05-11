@@ -22,6 +22,9 @@ http
     var contentType = "text/html";
 
     switch (extname) {
+      case ".ico":
+        contentType = "image/x-icon";
+        break;
       case ".txt":
         contentType = "text/plain";
         break;
