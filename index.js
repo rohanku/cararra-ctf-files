@@ -4,7 +4,11 @@ var path = require("path");
 var url = require("url"); // built-in utility
 var scripts = {
   "cracked-4": require("./cracked-4"),
+  "admin-bot": require("./admin-bot"),
 };
+var ports = [
+  require("./cross-the-site")
+];
 
 const hostname = "0.0.0.0";
 const port = process.env.PORT || 3001;
@@ -80,3 +84,7 @@ http
   })
   .listen(port);
 console.log(`Server running at http://${hostname}:${port}/`);
+
+ports.forEach((port)=>{
+  port.setup()
+});

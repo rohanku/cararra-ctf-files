@@ -18,6 +18,12 @@
   },
   "homepage": "https://github.com/rohanku/cararra-ctf-files#readme",
   "dependencies": {
-    "http-server": "^0.12.3"
+    "casperjs": "^1.1.4",
+    "express": "^4.17.1",
+    "http-server": "^0.12.3",
+    "puppeteer": "^9.1.1",
+    "request": "^2.88.2",
+    "webpagetest": "^0.4.0",
+    "zombie": "^6.1.4"
   }
 }
