@@ -1,7 +1,7 @@
 function page(url) {
 
 //basic route for homepage
-  msg = getParameterByName("html", url);
+  html = getParameterByName("html", url);
   return`
       <!DOCTYPE html>
       <html>
@@ -23,11 +23,11 @@ function page(url) {
 
           <p>Enter some HTML to display!</p>
           <form onSubmit="process();">
-            HTML: <input type="text" name="msg" id="msg" />
+            HTML: <input type="text" name="html" id="html" />
             <input type="submit" value="Submit" />
           </form>
           <p>Rendered HTML:</p>
-          ${msg ? msg : ""}
+          ${html ? html : ""}
         </body>
       </html>
       `;
