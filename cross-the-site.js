@@ -1,7 +1,7 @@
 function page(url) {
 
 //basic route for homepage
-  msg = getParameterByName("msg", url);
+  msg = getParameterByName("html", url);
   return`
       <!DOCTYPE html>
       <html>
@@ -15,18 +15,18 @@ function page(url) {
                       history.replaceState(
                                   null,
                                   null,
-                                  "?msg=" + document.getElementById("msg").value
+                                  "?html=" + document.getElementById("html").value
                                 );
                       return true;
                     }
         </script>
 
-          <p>Enter a message to display!</p>
+          <p>Enter some HTML to display!</p>
           <form onSubmit="process();">
-            Password: <input type="text" name="msg" id="msg" />
+            HTML: <input type="text" name="msg" id="msg" />
             <input type="submit" value="Submit" />
           </form>
-          <p>Your message</p>
+          <p>Rendered HTML:</p>
           ${msg ? msg : ""}
         </body>
       </html>
