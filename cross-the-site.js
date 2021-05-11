@@ -1,7 +1,7 @@
 function page(url) {
 
 //basic route for homepage
-  msg = getParameterByName(msg, url);
+  msg = getParameterByName("msg", url);
   return`
       <!DOCTYPE html>
       <html>
