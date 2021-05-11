@@ -1,12 +1,8 @@
-function setup() {
-
-let express = require("express");
-//setup express app
-let app = express();
+function page(url) {
 
 //basic route for homepage
-app.get("/cross-the-site", (req, res) => {
-  html = `
+  msg = getParameterByName(msg, url);
+  return`
       <!DOCTYPE html>
       <html>
         <head>
@@ -31,20 +27,17 @@ app.get("/cross-the-site", (req, res) => {
             <input type="submit" value="Submit" />
           </form>
           <p>Your message</p>
-          ${req.query.msg ? req.query.msg : ""}
+          ${msg ? msg : ""}
         </body>
       </html>
       `;
-  console.log("got request: " + req.url);
-  res.send(html);
-});
-
-const port = process.env.PORT || 3001;
-//server listens to port 3002
-app.listen(port, (err) => {
-  if (err) throw err;
-  console.log(`listening on port ${port}`);
-});
 }
-
-module.exports = { setup };
+function getParameterByName(name, url) {
+  name = name.replace(/[\[\]]/g, "\\$&");
+  var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+    results = regex.exec(url);
+  if (!results) return null;
+  if (!results[2]) return "";
+  return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+module.exports = { page };
