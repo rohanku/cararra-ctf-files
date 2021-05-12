@@ -1,5 +1,6 @@
 const request = require('request');
 const puppeteer = require('puppeteer');
+var validUrl = require('valid-url');
 const flag = "cararraCTF{d0nt_d1SP4y_uSeR_!npUt_cuz_XSS}";
 
 
@@ -12,8 +13,7 @@ async function send(url) {
         ],
       });
       const page = await browser.newPage();
-    console.log(url)
-      await page.setCookie({name: "flag", value: flag, domain: 'cararra-ctf-files.herokuapp.com:3002'});
+      await page.setCookie({name: "flag", value: flag, domain: 'cararra-ctf-files.herokuapp.com'});
       await page.goto(url);
       await browser.close();
   })();
@@ -22,7 +22,7 @@ async function send(url) {
 
 function page(url) {
   u = getParameterByName("url", url);
-  if (u) {
+  if (u && validUrl.isUri(u)) {
     send(u);
   return `
     <!DOCTYPE html>
