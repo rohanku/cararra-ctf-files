@@ -23,6 +23,7 @@
     "http-server": "^0.12.3",
     "puppeteer": "^9.1.1",
     "request": "^2.88.2",
+    "valid-url": "^1.0.9",
     "webpagetest": "^0.4.0",
     "zombie": "^6.1.4"
   }
