@@ -1,7 +1,8 @@
+const utils = require('./utils');
 const flag = "cararraCTF{!nf0rm3d_brUtE_f0Rc3_v3ry_oP}";
 
 function page(url) {
-  pass = getParameterByName("pass", url);
+  pass = utils.getParameterByName("pass", url);
   if (pass == null) {
     return `
     <!DOCTYPE html>
@@ -110,14 +111,6 @@ function page(url) {
     </html>
 `;
   }
-}
-function getParameterByName(name, url) {
-  name = name.replace(/[\[\]]/g, "\\$&");
-  var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-    results = regex.exec(url);
-  if (!results) return null;
-  if (!results[2]) return "";
-  return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
 module.exports = { page };

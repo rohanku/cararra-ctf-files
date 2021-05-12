@@ -1,5 +1,6 @@
 const request = require('request');
 const puppeteer = require('puppeteer');
+const utils = require('./utils');
 var validUrl = require('valid-url');
 const flag = "cararraCTF{d0nt_d1SP4y_uSeR_!npUt_cuz_XSS}";
 
@@ -21,7 +22,7 @@ async function send(url) {
 }
 
 function page(url) {
-  u = getParameterByName("url", url);
+  u = utils.getParameterByName("url", url);
   if (u && validUrl.isUri(u)) {
     send(u);
   return `
@@ -81,14 +82,6 @@ function page(url) {
         </body>
       </html>
       `;
-}
-function getParameterByName(name, url) {
-  name = name.replace(/[\[\]]/g, "\\$&");
-  var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-    results = regex.exec(url);
-  if (!results) return null;
-  if (!results[2]) return "";
-  return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
 module.exports = { page };

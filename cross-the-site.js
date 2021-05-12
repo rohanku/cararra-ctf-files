@@ -1,7 +1,7 @@
-function page(url) {
+const utils = require('./utils');
 
-//basic route for homepage
-  html = getParameterByName("html", url);
+function page(url) {
+  html = utils.getParameterByName("html", url);
   return`
       <!DOCTYPE html>
       <html>
@@ -32,12 +32,5 @@ function page(url) {
       </html>
       `;
 }
-function getParameterByName(name, url) {
-  name = name.replace(/[\[\]]/g, "\\$&");
-  var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-    results = regex.exec(url);
-  if (!results) return null;
-  if (!results[2]) return "";
-  return decodeURIComponent(results[2].replace(/\+/g, " "));
-}
+
 module.exports = { page };
