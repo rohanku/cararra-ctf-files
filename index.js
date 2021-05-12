@@ -22,6 +22,9 @@ http
     var contentType = "text/html";
 
     switch (extname) {
+      case ".zip":
+        contentType = "application/zip";
+        break;
       case ".ico":
         contentType = "image/x-icon";
         break;
