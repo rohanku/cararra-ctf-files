@@ -3,9 +3,9 @@ var fs = require("fs");
 var path = require("path");
 var url = require("url"); // built-in utility
 var scripts = {
-  "cracked-4": require("./cracked-4"),
-  "admin-bot": require("./admin-bot"),
-  "cross-the-site": require("./cross-the-site"),
+  "r1/cracked-4": require("./r1/cracked-4"),
+  "r1/admin-bot": require("./r1/admin-bot"),
+  "r1/cross-the-site": require("./r1/cross-the-site"),
 };
 
 const hostname = "0.0.0.0";

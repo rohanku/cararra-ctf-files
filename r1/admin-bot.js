@@ -1,6 +1,6 @@
 const request = require('request');
 const puppeteer = require('puppeteer');
-const utils = require('./utils');
+const utils = require('../utils');
 var validUrl = require('valid-url');
 const flag = "cararraCTF{d0nt_d1SP4y_uSeR_!npUt_cuz_XSS}";
 
