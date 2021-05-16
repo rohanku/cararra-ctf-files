@@ -3,9 +3,9 @@ var fs = require("fs");
 var path = require("path");
 var url = require("url"); // built-in utility
 var scripts = {
-  "r1/cracked-4": require("./r1/cracked-4"),
-  "r1/admin-bot": require("./r1/admin-bot"),
-  "r1/cross-the-site": require("./r1/cross-the-site"),
+  "./r1/cracked-4": require("./r1/cracked-4"),
+  "./r1/admin-bot": require("./r1/admin-bot"),
+  "./r1/cross-the-site": require("./r1/cross-the-site"),
 };
 
 const hostname = "0.0.0.0";
@@ -47,11 +47,11 @@ http
         contentType = "audio/wav";
         break;
       default:
-        if (!(path.basename(filePath) in scripts))
+        if (!(filePath in scripts))
           return;
         response.writeHead(200, { "Content-Type": "text/html" });
         response.end(
-          scripts[path.basename(filePath)].page(request.url),
+          scripts[filePath].page(request.url),
           "utf-8"
         );
         return;
