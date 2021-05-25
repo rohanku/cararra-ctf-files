@@ -25,6 +25,7 @@
     "request": "^2.88.2",
     "valid-url": "^1.0.9",
     "webpagetest": "^0.4.0",
+    "ws": "^6.2.1",
     "zombie": "^6.1.4"
   }
 }

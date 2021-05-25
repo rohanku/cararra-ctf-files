@@ -2,16 +2,22 @@ var http = require("http");
 var fs = require("fs");
 var path = require("path");
 var url = require("url"); // built-in utility
-var scripts = {
+
+var scriptpages = {
   "./r1/cracked-4": require("./r1/cracked-4"),
   "./r1/admin-bot": require("./r1/admin-bot"),
   "./r1/cross-the-site": require("./r1/cross-the-site"),
 };
 
+var scripts = [
+  require("./r2/fancy-socks-1"),
+];
+
 const hostname = "0.0.0.0";
 const port = process.env.PORT || 3001;
 
-http
+
+const httpServer = http
   .createServer(function (request, response) {
     console.log("request starting...");
 
@@ -47,7 +53,7 @@ http
         contentType = "audio/wav";
         break;
       default:
-        if (!(filePath in scripts))
+        if (!(filePath in scriptspages))
           return;
         response.writeHead(200, { "Content-Type": "text/html" });
         response.end(
@@ -86,5 +92,9 @@ http
       }
     });
   })
-  .listen(port);
+
+
+httpServer.listen(port);
 console.log(`Server running at http://${hostname}:${port}/`);
+
+scripts.forEach((script) => script.run(httpServer));
