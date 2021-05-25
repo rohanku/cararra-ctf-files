@@ -53,7 +53,7 @@ const httpServer = http
         contentType = "audio/wav";
         break;
       default:
-        if (!(filePath in scriptspages))
+        if (!(filePath in scriptpages))
           return;
         response.writeHead(200, { "Content-Type": "text/html" });
         response.end(
