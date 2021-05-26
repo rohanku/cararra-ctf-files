@@ -9,9 +9,10 @@ var scriptpages = {
   "./r1/cross-the-site": require("./r1/cross-the-site"),
 };
 
-var scripts = [
-  require("./r2/fancy-socks-1"),
-];
+var websockets = {
+  "/r2/fancy-socks-1": require("./r2/fancy-socks-1"),
+  "/r2/fancy-socks-2": require("./r2/fancy-socks-2"),
+};
 
 const hostname = "0.0.0.0";
 const port = process.env.PORT || 3001;
@@ -93,8 +94,18 @@ const httpServer = http
     });
   })
 
+const WebSocket = require('ws');
+const wss = new WebSocket.Server({ server: httpServer });
+
+wss.on('connection', function connection(ws, req) {
+    let pathname = url.parse(req.url, true).pathname;
+  console.log(pathname);
+    if (pathname in websockets) {
+      console.log("hi");
+      websockets[pathname].run(ws);
+    }
+});
+
 
 httpServer.listen(port);
 console.log(`Server running at http://${hostname}:${port}/`);
-
-scripts.forEach((script) => script.run(httpServer));
