@@ -4,7 +4,7 @@ const flag = "VIGENERETOOEASY"
 function run(ws) {
 
     console.log('opened connection');
-    ws.send('Welcome to the ultimate FANCY SOCKS ENCRYPTER!');
+    ws.send('Welcome to the ultimate FANCY SOCKS ENCRYPTOR!');
     ws.send(`Enter a message to be encrypted:`);
     ws.on('message', function incoming(message) {
       console.log('received: %s', message);
