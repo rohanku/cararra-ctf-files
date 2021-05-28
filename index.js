@@ -12,6 +12,7 @@ var scriptpages = {
 var websockets = {
   "/r2/fancy-socks-1": require("./r2/fancy-socks-1"),
   "/r2/fancy-socks-2": require("./r2/fancy-socks-2"),
+  "/r2/fancy-socks-3": require("./r2/fancy-socks-3"),
 };
 
 const hostname = "0.0.0.0";
@@ -99,10 +100,11 @@ const wss = new WebSocket.Server({ server: httpServer });
 
 wss.on('connection', function connection(ws, req) {
     let pathname = url.parse(req.url, true).pathname;
-  console.log(pathname);
+    console.log(pathname);
     if (pathname in websockets) {
-      console.log("hi");
       websockets[pathname].run(ws);
+    } else {
+      ws.close();
     }
 });
 

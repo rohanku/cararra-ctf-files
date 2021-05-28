@@ -21,6 +21,7 @@
     "casperjs": "^1.1.4",
     "express": "^4.17.1",
     "http-server": "^0.12.3",
+    "pem-jwk": "^2.0.0",
     "puppeteer": "^9.1.1",
     "request": "^2.88.2",
     "valid-url": "^1.0.9",
