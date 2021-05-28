@@ -1,6 +1,5 @@
 const WebSocket = require('ws');
 const crypto = require('crypto');
-const pem2jwk = require('pem-jwk').pem2jwk
 
 // The passphrase used to repeatably generate this RSA key.
 const flag = "cararraCTF{th4ts_y_U_us3_P@Dd!nG}"
