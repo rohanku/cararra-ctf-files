@@ -63,8 +63,6 @@ const httpServer = http.createServer(function (request, response) {
         return;
       }
       if (filePath in headerscriptpages) {
-        console.log(filePath);
-        console.log(headerscriptpages);
         ([headers, page] = headerscriptpages[filePath].page(request)),
           response.writeHead(200, headers);
         response.end(page, "utf-8");

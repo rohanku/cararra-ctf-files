@@ -101,12 +101,16 @@ items = {
 }
       function update() {
         let info = parseJwt(getCookie("info"));
-        document.getElementById("cookies").innerHTML = "Cookies: " + info.cookies;
+        if (document.getElementById("cookies").innerHTML != "Cookies: " + info.cookies) {
+          document.getElementById("cookies").innerHTML = "Cookies: " + info.cookies;
+        }
 let owned = "";
 for (let item of info.items) {
   owned += "<p>"+item + "</p>\\n";
 }
+if (owned != document.getElementById("owned").innerHTML) {
         document.getElementById("owned").innerHTML = owned;
+        }
       }
       var t=setInterval(update,200);
       function earn() {
