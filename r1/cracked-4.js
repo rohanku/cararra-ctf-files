@@ -1,4 +1,4 @@
-const utils = require('../utils');
+const utils = require("../utils");
 const flag = "cararraCTF{!nf0rm3d_brUtE_f0Rc3_v3ry_oP}";
 
 function page(url) {

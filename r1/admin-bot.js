@@ -1,32 +1,31 @@
-const request = require('request');
-const puppeteer = require('puppeteer');
-const utils = require('../utils');
-const validUrl = require('valid-url');
+const request = require("request");
+const puppeteer = require("puppeteer");
+const utils = require("../utils");
+const validUrl = require("valid-url");
 
 const flag = "cararraCTF{d0nt_d1SP4y_uSeR_!npUt_cuz_XSS}";
 
-
 async function send(url) {
   (async () => {
-      const browser = await puppeteer.launch({
-        args: [
-          '--no-sandbox',
-          '--disable-setuid-sandbox',
-        ],
-      });
-      const page = await browser.newPage();
-      await page.setCookie({name: "flag", value: flag, domain: 'cararra-ctf-files.herokuapp.com'});
-      await page.goto(url);
-      await browser.close();
+    const browser = await puppeteer.launch({
+      args: ["--no-sandbox", "--disable-setuid-sandbox"],
+    });
+    const page = await browser.newPage();
+    await page.setCookie({
+      name: "flag",
+      value: flag,
+      domain: "cararra-ctf-files.herokuapp.com",
+    });
+    await page.goto(url);
+    await browser.close();
   })();
-    
 }
 
 function page(url) {
   u = utils.getParameterByName("url", url);
   if (u && validUrl.isUri(u)) {
     send(u);
-  return `
+    return `
     <!DOCTYPE html>
     <html>
         <head>
@@ -54,7 +53,6 @@ function page(url) {
         </body>
       </html>
       `;
-
   }
   return `
     <!DOCTYPE html>

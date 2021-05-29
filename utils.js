@@ -14,10 +14,10 @@ function getParameterByName(name, url) {
 function getCookie(cookie, cname) {
   var name = cname + "=";
   var decodedCookie = decodeURIComponent(cookie);
-  var ca = decodedCookie.split(';');
-  for(var i = 0; i <ca.length; i++) {
+  var ca = decodedCookie.split(";");
+  for (var i = 0; i < ca.length; i++) {
     var c = ca[i];
-    while (c.charAt(0) == ' ') {
+    while (c.charAt(0) == " ") {
       c = c.substring(1);
     }
     if (c.indexOf(name) == 0) {
@@ -27,4 +27,19 @@ function getCookie(cookie, cname) {
   return "";
 }
 
-module.exports = { getParameterByName, getCookie };
+function parseJwt(token) {
+  var base64Url = token.split(".")[1];
+  var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+  var jsonPayload = decodeURIComponent(
+    atob(base64)
+      .split("")
+      .map(function (c) {
+        return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
+      })
+      .join("")
+  );
+
+  return JSON.parse(jsonPayload);
+}
+
+module.exports = { getParameterByName, getCookie, parseJwt };

@@ -1,8 +1,8 @@
-const utils = require('../utils');
+const utils = require("../utils");
 
 function page(url) {
   html = utils.getParameterByName("html", url);
-  return`
+  return `
       <!DOCTYPE html>
       <html>
         <head>
