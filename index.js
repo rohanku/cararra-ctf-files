@@ -61,7 +61,7 @@ const httpServer = http
         if (filePath in scriptpages) {
           response.writeHead(200, { "Content-Type": "text/html" });
           response.end(
-            scriptspages[filePath].page(request.url),
+            scriptpages[filePath].page(request.url),
             "utf-8"
           );
           return;
