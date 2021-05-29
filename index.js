@@ -8,6 +8,9 @@ var scriptpages = {
   "./r1/admin-bot": require("./r1/admin-bot"),
   "./r1/cross-the-site": require("./r1/cross-the-site"),
 };
+var headerscriptpages = {
+  "./r2/cookie-monster-1": require("./r2/cookie-monster-1"),
+};
 
 var websockets = {
   "/r2/fancy-socks-1": require("./r2/fancy-socks-1"),
@@ -55,14 +58,23 @@ const httpServer = http
         contentType = "audio/wav";
         break;
       default:
-        if (!(filePath in scriptpages))
+        if (filePath in scriptpages) {
+          response.writeHead(200, { "Content-Type": "text/html" });
+          response.end(
+            scriptspages[filePath].page(request.url),
+            "utf-8"
+          );
           return;
-        response.writeHead(200, { "Content-Type": "text/html" });
-        response.end(
-          scripts[filePath].page(request.url),
-          "utf-8"
-        );
-        return;
+        }
+        if (filePath in headerscriptpages) {
+          [headers, page] = headerscriptpages[filePath].page(request),
+          response.writeHead(200, headers);
+          response.end(
+            page,
+            "utf-8"
+          );
+          return;
+        }
     }
 
     fs.readFile(filePath, function (error, content) {
