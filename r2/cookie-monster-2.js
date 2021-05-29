@@ -1,5 +1,5 @@
 const utils = require("../utils");
-const sign = require("jwt-encode");
+const jwt = require("jsonwebtoken");
 
 const secret = "thissecretiswaytounguessablecuzcararramadeit";
 
@@ -36,7 +36,29 @@ function page(req) {
   let info_cookie = utils.getCookie(cookie, "info");
   let info = { cookies: 0, add: 1, items: [] };
   if (info_cookie !== "") {
-    info = utils.parseJwt(info_cookie);
+    try {
+      info = jwt.verify(info_cookie, secret);
+    } catch {
+  let page = `
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>cookie-monster-2</title>
+  </head>
+
+  <body>
+  <h1> Cookie has been tampered with!!! </h1>
+  </body>
+</html>
+      `;
+  return [
+    {
+      "Content-Type": "text/html",
+    },
+    page,
+  ];
+    }
+      
   }
   let earn_amount = utils.getParameterByName("earn", url);
   if (earn_amount !== null) {
@@ -112,7 +134,7 @@ for (let item of info.items) {
     {
       "Content-Type": "text/html",
       "Set-Cookie":
-        "info=" + sign(info, secret) + "; Path=/r2/cookie-monster-2",
+        "info=" + jwt.sign(info, secret) + "; Path=/r2/cookie-monster-2",
     },
     page,
   ];
