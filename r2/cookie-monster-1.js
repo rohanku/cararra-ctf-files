@@ -21,16 +21,12 @@ let to_buy = utils.getParameterByName("buy", url)
   if (to_buy in items) {
     if (items[to_buy].cost <= info.cookies) {
       info.cookies -= items[to_buy].cost;
-      info.items.push(to_buy);
+      info.items.push(`${items[to_buy].name}: ${items[to_buy].message}`);
     }
   }
 let buttons = "";
 for (let [k, item] of Object.entries(items)) {
   buttons += `<p>${item.name} (Cost: ${item.cost}) <button onclick="buy('${k}')"> Buy </button></p>\n`
-}
-let owned = "";
-for (let item of info.items) {
-  owned += `<p>${items[item].name}: ${items[item].message}</p>\n`;
 }
   let page = `
 <!DOCTYPE html>
@@ -42,20 +38,36 @@ for (let item of info.items) {
   <body>
     <script>
       function earn() {
-              fetch(window.location.href.split("?")[0] + "?earn").then(response => location.reload());
+              fetch(window.location.href.split("?")[0] + "?earn");
             }
       function buy(item) {
-              fetch(window.location.href.split("?")[0] + "?buy=" + item).then(response => location.reload());
+              fetch(window.location.href.split("?")[0] + "?buy=" + item);
             }
+            function getCookie(name) {
+  const value = "; " + document.cookie;
+  const parts = value.split("; " + name + "=");
+  if (parts.length === 2) return parts.pop().split(';').shift();
+}
+      function update() {
+        let info = JSON.parse(atob(getCookie("info")))
+        document.getElementById("cookies").innerHTML = "Cookies: " + info.cookies;
+let owned = "";
+for (let item of info.items) {
+  owned += "<p>"+item + "</p>\\n";
+}
+        document.getElementById("owned").innerHTML = owned;
+      }
+      var t=setInterval(update,200);
   </script>
-    <h1>Cookies: ${info.cookies}</h1>
+    <h1 id="cookies">Cookies: ${info.cookies}</h1>
     <p>Click the button to earn cookies!</p>
     <button onclick="earn()"> Earn a cookie! </button>
     <h3>Shop</h3>
     ${buttons}
 
     <h3>Owned</h3>
-    ${owned}
+    <div id="owned">
+    </div>
 
   </body>
 </html>
