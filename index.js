@@ -8,7 +8,7 @@ var scriptpages = {
   "./r1/admin-bot": require("./r1/admin-bot"),
   "./r1/cross-the-site": require("./r1/cross-the-site"),
 };
-var headerscriptpages = {
+const headerscriptpages = {
   "./r2/cookie-monster-1": require("./r2/cookie-monster-1"),
   "./r2/cookie-monster-2": require("./r2/cookie-monster-2"),
 };
@@ -63,6 +63,8 @@ const httpServer = http.createServer(function (request, response) {
         return;
       }
       if (filePath in headerscriptpages) {
+        console.log(filePath);
+        console.log(headerscriptpages);
         ([headers, page] = headerscriptpages[filePath].page(request)),
           response.writeHead(200, headers);
         response.end(page, "utf-8");

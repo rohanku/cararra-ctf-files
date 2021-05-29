@@ -3,9 +3,8 @@ const puppeteer = require("puppeteer");
 const utils = require("../utils");
 const validUrl = require("valid-url");
 
-const flag = "cararraCTF{d0nt_d1SP4y_uSeR_!npUt_cuz_XSS}";
-
 async function send(url) {
+  const flag = "cararraCTF{d0nt_d1SP4y_uSeR_!npUt_cuz_XSS}";
   (async () => {
     const browser = await puppeteer.launch({
       args: ["--no-sandbox", "--disable-setuid-sandbox"],

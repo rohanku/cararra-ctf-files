@@ -1,7 +1,7 @@
 const utils = require("../utils");
-const flag = "cararraCTF{!nf0rm3d_brUtE_f0Rc3_v3ry_oP}";
 
 function page(url) {
+  const flag = "cararraCTF{!nf0rm3d_brUtE_f0Rc3_v3ry_oP}";
   pass = utils.getParameterByName("pass", url);
   if (pass == null) {
     return `

@@ -1,5 +1,7 @@
 const utils = require("../utils");
 
+
+function page(req) {
 items = {
   epicness: {
     name: "Epicness",
@@ -17,8 +19,6 @@ items = {
     message: "cararraCTF{g0tt@_3nSRe_AutHenT1c!ty}",
   },
 };
-
-function page(req) {
   let url = req.url;
   let cookie = req.headers.cookie;
   let info_cookie = utils.getCookie(cookie, "info");

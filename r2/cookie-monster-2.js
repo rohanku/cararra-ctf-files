@@ -1,6 +1,8 @@
 const utils = require("../utils");
 const jwt = require("jsonwebtoken");
 
+
+function page(req) {
 const secret = "thissecretiswaytounguessablecuzcararramadeit";
 
 items = {
@@ -29,8 +31,6 @@ items = {
     add: 0,
   },
 };
-
-function page(req) {
   let url = req.url;
   let cookie = req.headers.cookie;
   let info_cookie = utils.getCookie(cookie, "info");
