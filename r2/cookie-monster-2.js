@@ -27,7 +27,7 @@ items = {
   flag: {
     name: "Flag",
     cost: 10000000000000,
-    message: "cararraCTF{APIs_are_not_private!!!!}",
+    message: "cararraCTF{d0NT_exPoSe_APIS_1f_y0U_d0nt_w@nt_them_used_<3}",
     add: 0,
   },
 };
