@@ -16,7 +16,7 @@ function encrypt(msg) {
     1323015712,
   ];
   const asdf = [1231, 120309, 58, 89324234, 1023012, 1230580342];
-  msg += new Array(4 - (msg.length % 3)).join("a");
+  msg += new Array(3 - ((msg.length + 2) % 3)).join("a");
   encrypted = "";
   for (let i = 0; 3 * i < msg.length; i++) {
     let k =
