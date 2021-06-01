@@ -1,24 +1,23 @@
 const utils = require("../utils");
 
-
 function page(req) {
-items = {
-  epicness: {
-    name: "Epicness",
-    cost: 10,
-    message: "wow you also get a message with it!",
-  },
-  thingamabob: {
-    name: "Thingamabob",
-    cost: 100,
-    message: "you just really can't afford a flag it seems",
-  },
-  flag: {
-    name: "Flag",
-    cost: 100000000000,
-    message: "cararraCTF{g0tt@_3nSRe_AutHenT1c!ty}",
-  },
-};
+  items = {
+    epicness: {
+      name: "Epicness",
+      cost: 10,
+      message: "wow you also get a message with it!",
+    },
+    thingamabob: {
+      name: "Thingamabob",
+      cost: 100,
+      message: "you just really can't afford a flag it seems",
+    },
+    flag: {
+      name: "Flag",
+      cost: 100000000000,
+      message: "cararraCTF{g0tt@_3nSRe_AutHenT1c!ty}",
+    },
+  };
   let url = req.url;
   let cookie = req.headers.cookie;
   let info_cookie = utils.getCookie(cookie, "info");

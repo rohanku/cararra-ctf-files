@@ -1,36 +1,35 @@
 const utils = require("../utils");
 const jwt = require("jsonwebtoken");
 
-
 function page(req) {
-const secret = "thissecretiswaytounguessablecuzcararramadeit";
+  const secret = "thissecretiswaytounguessablecuzcararramadeit";
 
-items = {
-  p1: {
-    name: "+1 powerup",
-    cost: 50,
-    message: "wow you also get a message with it!",
-    add: 1,
-  },
-  p3: {
-    name: "+3 powerup",
-    cost: 1000,
-    message: "you just really can't afford a flag it seems",
-    add: 3,
-  },
-  p5: {
-    name: "+5 powerup",
-    cost: 1500,
-    message: "you just really can't afford a flag it seems",
-    add: 5,
-  },
-  flag: {
-    name: "Flag",
-    cost: 10000000000000,
-    message: "cararraCTF{d0NT_exPoSe_APIS_1f_y0U_d0nt_w@nt_them_used_<3}",
-    add: 0,
-  },
-};
+  items = {
+    p1: {
+      name: "+1 powerup",
+      cost: 50,
+      message: "wow you also get a message with it!",
+      add: 1,
+    },
+    p3: {
+      name: "+3 powerup",
+      cost: 1000,
+      message: "you just really can't afford a flag it seems",
+      add: 3,
+    },
+    p5: {
+      name: "+5 powerup",
+      cost: 1500,
+      message: "you just really can't afford a flag it seems",
+      add: 5,
+    },
+    flag: {
+      name: "Flag",
+      cost: 10000000000000,
+      message: "cararraCTF{d0NT_exPoSe_APIS_1f_y0U_d0nt_w@nt_them_used_<3}",
+      add: 0,
+    },
+  };
   let url = req.url;
   let cookie = req.headers.cookie;
   let info_cookie = utils.getCookie(cookie, "info");
@@ -39,7 +38,7 @@ items = {
     try {
       info = jwt.verify(info_cookie, secret);
     } catch {
-  let page = `
+      let page = `
 <!DOCTYPE html>
 <html>
   <head>
@@ -51,14 +50,13 @@ items = {
   </body>
 </html>
       `;
-  return [
-    {
-      "Content-Type": "text/html",
-    },
-    page,
-  ];
+      return [
+        {
+          "Content-Type": "text/html",
+        },
+        page,
+      ];
     }
-      
   }
   let earn_amount = utils.getParameterByName("earn", url);
   if (earn_amount !== null) {
