@@ -7,6 +7,7 @@ var scriptpages = {
   "./r1/cracked-4": require("./r1/cracked-4"),
   "./r1/admin-bot": require("./r1/admin-bot"),
   "./r1/cross-the-site": require("./r1/cross-the-site"),
+  "./r3/sanity-check": require("./r3/sanity-check"),
 };
 const headerscriptpages = {
   "./r2/cookie-monster-1": require("./r2/cookie-monster-1"),
