@@ -19,6 +19,7 @@ var websockets = {
   "/r2/fancy-socks-2": require("./r2/fancy-socks-2"),
   "/r2/fancy-socks-3": require("./r2/fancy-socks-3"),
   "/r2/fancy-socks-4": require("./r2/fancy-socks-4"),
+  "/r3/number-sense-3": require("./r3/number-sense-3"),
 };
 
 const hostname = "0.0.0.0";
