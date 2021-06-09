@@ -17,28 +17,29 @@ function gcd(a, b) {
 }
 
 function run(ws) {
-  n = 2n ** getRandomInt(50, 10) * 3n ** getRandomInt(50, 10) * 5n ** getRandomInt(50, 10)
+  let n =
+    2n ** getRandomInt(50, 10) *
+    3n ** getRandomInt(50, 10) *
+    5n ** getRandomInt(50, 10);
   ws.send("Welcome to GUESS MY NUMBER!");
   ws.send(`Enter your guess X:`);
   ws.on("message", function incoming(message) {
     try {
-    x = BigInt(message);
-    if (x === n) {
-      ws.send(flag);
-      ws.close();
-      return;
-    }
-    if (x < 1) {
-      ws.send(`Invalid guess: ${message}`);
-    } else {
-      ws.send(
-        `gcd(X, N) = ${gcd(x, n)}`
-      );
-    }
+      let x = BigInt(message);
+      if (x === n) {
+        ws.send(flag);
+        ws.close();
+        return;
+      }
+      if (x < 1) {
+        ws.send(`Invalid guess: ${message}`);
+      } else {
+        ws.send(`gcd(X, N) = ${gcd(x, n)}`);
+      }
     } catch {
       ws.send(`Invalid guess: ${message}`);
     }
-  ws.send(`Enter your guess X:`);
+    ws.send(`Enter your guess X:`);
   });
 }
 

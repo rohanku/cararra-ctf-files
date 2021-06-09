@@ -1,7 +1,8 @@
 const WebSocket = require("ws");
 const crypto = require("crypto");
 
-const flag_encrypted = "17hdzd017hb3no17hb0h217ilem817eb1ut17e9mbr17gk1t217gdhs617h42zl17g7nsa17h7xh017i0guf17hszza17hm29f17fwlrn";
+const flag_encrypted =
+  "17hdzd017hb3no17hb0h217ilem817eb1ut17e9mbr17gk1t217gdhs617h42zl17g7nsa17h7xh017i0guf17hszza17hm29f17fwlrn";
 
 function encrypt(msg) {
   const bruh = [
