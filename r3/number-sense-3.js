@@ -21,6 +21,7 @@ function run(ws) {
   ws.send("Welcome to GUESS MY NUMBER!");
   ws.send(`Enter your guess X:`);
   ws.on("message", function incoming(message) {
+    try {
     x = BigInt(message);
     if (x === n) {
       ws.send(flag);
@@ -28,11 +29,14 @@ function run(ws) {
       return;
     }
     if (x < 1) {
-      ws.send(`Invalid guess!`);
+      ws.send(`Invalid guess: ${message}`);
     } else {
       ws.send(
         `gcd(X, N) = ${gcd(x, n)}`
       );
+    }
+    } catch {
+      ws.send(`Invalid guess: ${message}`);
     }
   ws.send(`Enter your guess X:`);
   });
