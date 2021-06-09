@@ -37,7 +37,7 @@ function gcd(a, b) {
 }
 
 function run(ws) {
-  let max = 2n ** 1000n;
+  let max = 2n ** 100n;
   let primes = [2n, 3n, 5n, 7n, 11n, 13n];
   let n = 1n;
   let a = 1n;
