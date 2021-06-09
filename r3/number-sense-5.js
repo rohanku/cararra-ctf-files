@@ -2,7 +2,8 @@ const WebSocket = require("ws");
 const crypto = require("crypto");
 
 // The passphrase used to repeatably generate this RSA key.
-const flag = "cararraCTF{unl1m1t3d_tr1es_t00_eZ}";
+const flag = "cararraCTF{p@rAll3l_b1N4RY_S3arCH!!!}";
+const max_tries = 11;
 
 function intLog(base, num) {
   let lo = 0n;
@@ -37,6 +38,7 @@ function gcd(a, b) {
 }
 
 function run(ws) {
+  let tries = 0;
   let max = 2n ** 1000n;
   let primes = [2n, 3n, 5n, 7n, 11n, 13n];
   let n = 1n;
@@ -46,6 +48,9 @@ function run(ws) {
     a *= primes[i];
   }
   ws.send("Welcome to GUESS MY NUMBER!");
+  ws.send(
+    `You have ${max_tries} guesses, and if you fail, I will generate a new number for you to try again on :)`
+  );
   ws.send(`Enter your guess X:`);
   ws.on("message", function incoming(message) {
     if (ws.readyState !== WebSocket.OPEN) {
@@ -66,6 +71,12 @@ function run(ws) {
       }
     } catch {
       ws.send(`Invalid guess: ${message}`);
+    }
+    tries++;
+    if (tries == max_tries) {
+      ws.send("That's all you get!");
+      ws.close();
+      return;
     }
     ws.send(`Enter your guess X:`);
   });
