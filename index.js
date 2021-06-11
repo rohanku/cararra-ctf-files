@@ -61,6 +61,9 @@ const httpServer = http.createServer(function (request, response) {
     case ".wav":
       contentType = "audio/wav";
       break;
+    case "":
+      contentType = "application/octet-stream";
+      break;
     default:
       if (filePath in scriptpages) {
         response.writeHead(200, { "Content-Type": "text/html" });
