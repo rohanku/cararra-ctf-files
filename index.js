@@ -3,18 +3,19 @@ var fs = require("fs");
 var path = require("path");
 var url = require("url"); // built-in utility
 
-var scriptpages = {
+const scriptpages = {
   "./r1/cracked-4": require("./r1/cracked-4"),
   "./r1/admin-bot": require("./r1/admin-bot"),
   "./r1/cross-the-site": require("./r1/cross-the-site"),
   "./r3/sanity-check": require("./r3/sanity-check"),
+  "./r3/curling-1": require("./r3/curling-1.js"),
 };
 const headerscriptpages = {
   "./r2/cookie-monster-1": require("./r2/cookie-monster-1"),
   "./r2/cookie-monster-2": require("./r2/cookie-monster-2"),
 };
 
-var websockets = {
+const websockets = {
   "/r2/fancy-socks-1": require("./r2/fancy-socks-1"),
   "/r2/fancy-socks-2": require("./r2/fancy-socks-2"),
   "/r2/fancy-socks-3": require("./r2/fancy-socks-3"),
@@ -23,6 +24,10 @@ var websockets = {
   "/r3/number-sense-4": require("./r3/number-sense-4"),
   "/r3/number-sense-5": require("./r3/number-sense-5"),
 };
+
+const binaries = new Set([
+  "/r3/magic-bytes",
+]);
 
 const hostname = "0.0.0.0";
 const port = process.env.PORT || 3001;
@@ -61,9 +66,6 @@ const httpServer = http.createServer(function (request, response) {
     case ".wav":
       contentType = "audio/wav";
       break;
-    case "":
-      contentType = "application/octet-stream";
-      break;
     default:
       if (filePath in scriptpages) {
         response.writeHead(200, { "Content-Type": "text/html" });
@@ -75,6 +77,12 @@ const httpServer = http.createServer(function (request, response) {
           response.writeHead(200, headers);
         response.end(page, "utf-8");
         return;
+      }
+      if (filePath in websockets) {
+        return;
+      }
+      if (filePath in binaries) {
+        contentType = "application/octet-stream";
       }
   }
 
