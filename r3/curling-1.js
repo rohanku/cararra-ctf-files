@@ -3,7 +3,7 @@ const utils = require("../utils");
 function page(url) {
   number = utils.getParameterByName("number", url);
   const flag = "cararraCTF{curl1nG_1s_4_c00l_spOrt}";
-  const pass = "3981";
+  const pass = "598";
 
   if (!number) {
     return `
@@ -25,7 +25,7 @@ function page(url) {
                     }
         </script>
 
-          <p>Guess a number between 1 and 10000!</p>
+          <p>Guess a number between 1 and 1000!</p>
           <form onSubmit="process();">
             Guess: <input type="text" name="number" id="number" />
             <input type="submit" value="Submit"/>
