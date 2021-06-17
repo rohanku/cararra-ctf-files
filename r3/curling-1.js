@@ -32,7 +32,7 @@ function page(url) {
           </form>
         </body>
       </html>
-      `
+      `;
   }
   if (number === pass) {
     return `
@@ -56,10 +56,10 @@ function page(url) {
           <p> That is correct! Here is your flag: ${flag} </p>
         </body>
       </html>
-      `
+      `;
   }
 
-    return `
+  return `
       <!DOCTYPE html>
       <html>
         <head>
@@ -85,7 +85,7 @@ function page(url) {
           </form>
         </body>
       </html>
-      `
+      `;
 }
 
 module.exports = { page };

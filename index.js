@@ -13,6 +13,7 @@ const scriptpages = {
 const headerscriptpages = {
   "./r2/cookie-monster-1": require("./r2/cookie-monster-1"),
   "./r2/cookie-monster-2": require("./r2/cookie-monster-2"),
+  "./r3/curling-2": require("./r3/curling-2.js"),
 };
 
 const websockets = {
@@ -25,9 +26,7 @@ const websockets = {
   "/r3/number-sense-5": require("./r3/number-sense-5"),
 };
 
-const binaries = new Set([
-  "/r3/magic-bytes",
-]);
+const binaries = new Set(["/r3/magic-bytes"]);
 
 const hostname = "0.0.0.0";
 const port = process.env.PORT || 3001;
