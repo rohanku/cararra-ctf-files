@@ -322,13 +322,22 @@ function page(req) {
 `;
   let url = req.url;
   let cookie = req.headers.cookie;
+  header = {
+    "Content-Type": "text/html",
+  }
+  initial_cookies = []
+  for (const [key, value] of Object.entries(cookie_types)) {
+    let c = utils.getCookie(cookie, key);
+    if (!c) {
+      initial_cookies.push(key + "=0;");
+    }
+  }
+  header["Set-Cookie"] = initial_cookies;
   for (const [key, value] of Object.entries(cookie_types)) {
     let c = utils.getCookie(cookie, key);
     if (c !== value.toString()) {
       return [
-        {
-          "Content-Type": "text/html",
-        },
+        header,
         html,
       ];
     }
