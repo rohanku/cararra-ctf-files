@@ -24,6 +24,7 @@ const websockets = {
   "/r3/number-sense-3": require("./r3/number-sense-3"),
   "/r3/number-sense-4": require("./r3/number-sense-4"),
   "/r3/number-sense-5": require("./r3/number-sense-5"),
+  "/r3/padding-problems-1": require("./r3/padding-problems-1-ws"),
 };
 
 const binaries = new Set(["/r3/magic-bytes"]);
@@ -82,6 +83,9 @@ const httpServer = http.createServer(function (request, response) {
       }
       if (filePath in binaries) {
         contentType = "application/octet-stream";
+      }
+      if (extname === ".js") {
+        contentType = "text/javascript";
       }
   }
 
