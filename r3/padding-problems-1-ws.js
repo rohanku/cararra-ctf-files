@@ -113,7 +113,6 @@ function run(ws) {
   ws.on("message", function incoming(message) {
     try {
       ans = JSON.stringify(JSON.parse(message));
-      console.log(ans);
       if (rsa_encrypt(ans, n, e) === message_encrypted) {
         ws.send(`Nice job! Here is your flag: ${flag}`);
       } else {
