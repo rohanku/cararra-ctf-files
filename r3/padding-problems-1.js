@@ -51,7 +51,7 @@ function rsa_encrypt(message, n, e) {
 
 function create_encrypted_message(n, e) {
   classes = [
-    { name: "AP Chem", grade: "A+"},
+    { name: "AP Chem", grade: "A+" },
     { name: "AP Spanish", grade: "F" },
     { name: "English 11 Honors", grade: "F" },
     { name: "APUSH", grade: "F" },

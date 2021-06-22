@@ -324,8 +324,8 @@ function page(req) {
   let cookie = req.headers.cookie;
   header = {
     "Content-Type": "text/html",
-  }
-  initial_cookies = []
+  };
+  initial_cookies = [];
   for (const [key, value] of Object.entries(cookie_types)) {
     let c = utils.getCookie(cookie, key);
     if (!c) {
@@ -336,10 +336,7 @@ function page(req) {
   for (const [key, value] of Object.entries(cookie_types)) {
     let c = utils.getCookie(cookie, key);
     if (c !== value.toString()) {
-      return [
-        header,
-        html,
-      ];
+      return [header, html];
     }
   }
   return [
