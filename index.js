@@ -26,6 +26,7 @@ const websockets = {
   "/r3/number-sense-5": require("./r3/number-sense-5"),
   "/r3/padding-problems-1": require("./r3/padding-problems-1-ws"),
   "/r3/learn-your-cbcs": require("./r3/learn-your-cbcs"),
+  "/r3/padding-problems-2": require("./r3/padding-problems-2"),
 };
 
 const binaries = new Set(["/r3/magic-bytes"]);
