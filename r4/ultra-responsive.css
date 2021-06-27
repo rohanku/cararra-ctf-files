@@ -1,0 +1,19 @@
+.c {
+  background-image: url("ultra-responsive-fail.png");
+  width: 320px;
+  height: 49px;
+}
+@media (min-width: 425px) {
+  .c {
+    background-image: url("ultra-responsive-flag.png");
+    width: 320px;
+    height: 49px;
+  }
+}
+@media (min-width: 426px) {
+  .c {
+    background-image: url("ultra-responsive-fail.png");
+    width: 320px;
+    height: 49px;
+  }
+}
