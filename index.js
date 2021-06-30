@@ -27,6 +27,7 @@ const websockets = {
   "/r3/padding-problems-1": require("./r3/padding-problems-1-ws"),
   "/r3/learn-your-cbcs": require("./r3/learn-your-cbcs"),
   "/r3/padding-problems-2": require("./r3/padding-problems-2"),
+  "/r4/bolt-on-security": require("./r4/bolt-on-security-ws"),
 };
 
 const binaries = new Set(["/r3/magic-bytes"]);
