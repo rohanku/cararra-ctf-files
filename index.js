@@ -30,7 +30,34 @@ const websockets = {
   "/r4/bolt-on-security": require("./r4/bolt-on-security-ws"),
 };
 
-const binaries = new Set(["/r3/magic-bytes"]);
+const binaries = new Set([
+"./r3/magic-bytes",
+"./r4/obscurity-security-1",
+"./r4/obscurity-security-2",
+]);
+
+const hidden = new Set([
+  "./index.js",
+  "./r1/cracked-4.js",
+  "./r1/admin-bot.js",
+  "./r1/cross-the-site.js",
+  "./r3/sanity-check.js",
+  "./r3/curling-1.js",
+  "./r2/cookie-monster-1.js",
+  "./r2/cookie-monster-2.js",
+  "./r3/curling-2.js",
+  "./r2/fancy-socks-1.js",
+  "./r2/fancy-socks-2.js",
+  "./r2/fancy-socks-3.js",
+  "./r2/fancy-socks-4.js",
+  "./r3/number-sense-3.js",
+  "./r3/number-sense-4.js",
+  "./r3/number-sense-5.js",
+  "./r3/padding-problems-1-ws.js",
+  "./r3/learn-your-cbcs.js",
+  "./r3/padding-problems-2.js",
+  "./r4/bolt-on-security-ws.js"
+]);
 
 const hostname = "0.0.0.0";
 const port = process.env.PORT || 3001;
@@ -81,10 +108,10 @@ const httpServer = http.createServer(function (request, response) {
         response.end(page, "utf-8");
         return;
       }
-      if (filePath in websockets) {
+      if (hidden.has(filePath) || filePath in websockets) {
         return;
       }
-      if (filePath in binaries) {
+      if (binaries.has(filePath)) {
         contentType = "application/octet-stream";
       }
       if (extname === ".js") {
