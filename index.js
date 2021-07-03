@@ -28,6 +28,8 @@ const websockets = {
   "/r3/learn-your-cbcs": require("./r3/learn-your-cbcs"),
   "/r3/padding-problems-2": require("./r3/padding-problems-2"),
   "/r4/bolt-on-security": require("./r4/bolt-on-security-ws"),
+  "/r4/obscurity-security-1": require("./r4/obscurity-security-1.js"),
+  "/r4/obscurity-security-2": require("./r4/obscurity-security-2.js"),
 };
 
 const binaries = new Set([
@@ -56,7 +58,9 @@ const hidden = new Set([
   "./r3/padding-problems-1-ws.js",
   "./r3/learn-your-cbcs.js",
   "./r3/padding-problems-2.js",
-  "./r4/bolt-on-security-ws.js"
+  "./r4/bolt-on-security-ws.js",
+  "./r4/obscurity-security-1.js",
+  "./r4/obscurity-security-2.js",
 ]);
 
 const hostname = "0.0.0.0";
@@ -108,11 +112,11 @@ const httpServer = http.createServer(function (request, response) {
         response.end(page, "utf-8");
         return;
       }
-      if (hidden.has(filePath) || filePath in websockets) {
-        return;
-      }
       if (binaries.has(filePath)) {
         contentType = "application/octet-stream";
+      }
+      else if (hidden.has(filePath) || filePath in websockets) {
+        return;
       }
       if (extname === ".js") {
         contentType = "text/javascript";
