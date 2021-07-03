@@ -10,7 +10,7 @@ function run(ws) {
     ws.send(data);
   });
   process.on('close', (data) => {
-    ws.close();
+    setTimeout(ws.close, 1000);
   });
   ws.on("message", function incoming(message) {
     process.stdin.write(message);
