@@ -9,7 +9,7 @@ function run(ws) {
   process.stderr.on('data', (data) => {
     ws.send(data);
   });
-  process.stderr.on('end', (data) => {
+  process.on('close', (data) => {
     ws.close();
   });
   ws.on("message", function incoming(message) {
