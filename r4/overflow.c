@@ -11,7 +11,7 @@ int main() {
    gets(buf);
    printf("overflow_me value: %d\n", overflow_me);
    if (overflow_me != 0) {
-	   FILE *f = fopen("overflow-flag.txt", "r");
+	   FILE *f = fopen("./r4/overflow-flag.txt", "r");
 	   fgets(flag, FLAG_SIZE, f);
 	   printf("%s\n", flag);
    }
