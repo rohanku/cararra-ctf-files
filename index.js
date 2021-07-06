@@ -78,6 +78,9 @@ const httpServer = http.createServer(function (request, response) {
 
   var extname = path.extname(filePath);
   var contentType = "text/html";
+  if (hidden.has(filePath)) {
+    return;
+  }
 
   switch (extname) {
     case ".zip":
@@ -121,9 +124,6 @@ const httpServer = http.createServer(function (request, response) {
       }
       if (binaries.has(filePath)) {
         contentType = "application/octet-stream";
-      }
-      else if (hidden.has(filePath) || filePath in websockets) {
-        return;
       }
       if (extname === ".js") {
         contentType = "text/javascript";
