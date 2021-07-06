@@ -7,7 +7,7 @@ char flag[FLAG_SIZE];
 int main() {
    int overflow_me = 0;
    char buf[150];
-   printf("Enter an epic string: ");
+   printf("Enter an epic string:\n");
    gets(buf);
    printf("overflow_me value: %d\n", overflow_me);
    if (overflow_me != 0) {
