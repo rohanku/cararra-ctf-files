@@ -36,6 +36,7 @@ const binaries = new Set([
 "./r3/magic-bytes",
 "./r4/obscurity-security-1",
 "./r4/obscurity-security-2",
+"./r4/overflow",
 ]);
 
 const hidden = new Set([
@@ -61,6 +62,8 @@ const hidden = new Set([
   "./r4/bolt-on-security-ws.js",
   "./r4/obscurity-security-1.js",
   "./r4/obscurity-security-2.js",
+  "./r4/overflow.js",
+  "./r4/overflow-flag.txt",
 ]);
 
 const hostname = "0.0.0.0";
@@ -99,6 +102,9 @@ const httpServer = http.createServer(function (request, response) {
       break;
     case ".wav":
       contentType = "audio/wav";
+      break;
+    case ".c":
+      contentType = "text/plain";
       break;
     default:
       if (filePath in scriptpages) {
