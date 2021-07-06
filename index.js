@@ -30,6 +30,7 @@ const websockets = {
   "/r4/bolt-on-security": require("./r4/bolt-on-security-ws"),
   "/r4/obscurity-security-1": require("./r4/obscurity-security-1.js"),
   "/r4/obscurity-security-2": require("./r4/obscurity-security-2.js"),
+  "/r4/overflow": require("./r4/overflow.js"),
 };
 
 const binaries = new Set([
