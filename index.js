@@ -31,6 +31,7 @@ const websockets = {
   "/r4/obscurity-security-1": require("./r4/obscurity-security-1.js"),
   "/r4/obscurity-security-2": require("./r4/obscurity-security-2.js"),
   "/r4/overflow": require("./r4/overflow.js"),
+  "/r4/stack-attack": require("./r4/stack-attack.js"),
 };
 
 const binaries = new Set([
@@ -38,6 +39,7 @@ const binaries = new Set([
 "./r4/obscurity-security-1",
 "./r4/obscurity-security-2",
 "./r4/overflow",
+"./r4/stack-attack",
 ]);
 
 const hidden = new Set([
@@ -65,6 +67,8 @@ const hidden = new Set([
   "./r4/obscurity-security-2.js",
   "./r4/overflow.js",
   "./r4/overflow-flag.txt",
+  "./r4/stack-attack.js",
+  "./r4/stack-attack-flag.txt",
 ]);
 
 const hostname = "0.0.0.0";
