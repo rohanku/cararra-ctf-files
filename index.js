@@ -31,6 +31,7 @@ const websockets = {
   "/r4/obscurity-security-1": require("./r4/obscurity-security-1.js"),
   "/r4/obscurity-security-2": require("./r4/obscurity-security-2.js"),
   "/r4/overflow": require("./r4/overflow.js"),
+  "/r4/stack-attack": require("./r4/stack-attack.js"),
   "/r4/rip-the-rip": require("./r4/rip-the-rip.js"),
 };
 
