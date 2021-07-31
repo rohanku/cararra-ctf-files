@@ -41,7 +41,7 @@ const binaries = new Set([
 "./r4/obscurity-security-2",
 "./r4/overflow",
 "./r4/rip-the-rip",
-"./r4/sqlite_nov1ce.db",
+"./r5/sqlite_nov1ce.db",
 ]);
 
 const hidden = new Set([
