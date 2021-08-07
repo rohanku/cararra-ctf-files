@@ -25,6 +25,8 @@
     "http-server": "^0.12.3",
     "jsonwebtoken": "^8.5.1",
     "jwt-encode": "^1.0.1",
+    "locale": "^0.1.0",
+    "locales": "^0.0.2",
     "prompt-sync": "^4.2.0",
     "puppeteer": "^9.1.1",
     "request": "^2.88.2",

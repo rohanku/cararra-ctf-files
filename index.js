@@ -14,6 +14,7 @@ const headerscriptpages = {
   "./r2/cookie-monster-1": require("./r2/cookie-monster-1"),
   "./r2/cookie-monster-2": require("./r2/cookie-monster-2"),
   "./r3/curling-2": require("./r3/curling-2.js"),
+  "./r5/header-bender": require("./r5/header-bender.js"),
 };
 
 const websockets = {

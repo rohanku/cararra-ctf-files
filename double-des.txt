@@ -1,0 +1,5 @@
+flag: af285bc9516f8dec88ccb625d9545acbe84220affecc9a35541f122355b48912
+
+plaintext: sample_text
+
+ciphertext: ca2cba524873ab6df508f0a1dbbc742a
