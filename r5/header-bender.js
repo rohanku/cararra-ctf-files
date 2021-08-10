@@ -27,7 +27,7 @@ function page(req) {
 <!DOCTYPE html>
 <html>
 <head>
-<title>curling-2</title>
+<title>header-bender</title>
 </head>
 <body>
 
