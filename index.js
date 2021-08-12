@@ -34,6 +34,7 @@ const websockets = {
   "/r4/overflow": require("./r4/overflow.js"),
   "/r4/stack-attack": require("./r4/stack-attack.js"),
   "/r4/rip-the-rip": require("./r4/rip-the-rip.js"),
+  "/r5/defygg-hot": require("./r5/defygg-hot.js"),
 };
 
 const binaries = new Set([
@@ -75,6 +76,9 @@ const hidden = new Set([
   "./r4/stack-attack-flag.txt",
   "./r4/rip-the-rip.js",
   "./r4/rip-the-rip.txt",
+  "./r5/defygg-hot.js",
+  "./r5/defygg-hot-flag.txt",
+  "./r5/defygg-hot-key.txt",
 ]);
 
 const hostname = "0.0.0.0";
