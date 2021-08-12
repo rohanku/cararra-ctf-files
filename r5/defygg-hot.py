@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
-from Cryptodome.Cipher import AES
-from Cryptodome.Util.number import *
+from Crypto.Cipher import AES
+from Crypto.Util.number import *
 from binascii import hexlify
 import random
 with open('r5/defygg-hot-flag.txt','r') as f:
