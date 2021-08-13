@@ -4,11 +4,11 @@ const { exec } = require("child_process");
 function run(ws) {
   const process = exec('./r5/defygg-hot.py', []);
   process.stdout.on('data', (data) => {
-    if (ws.readyState !== WebSocket.OPEN) return;
+    if (ws.readyState !== WebSocket.OPEN || data === "") return;
     data.split('\n').forEach((msg) => ws.send(`${msg}\n`));
   });
   process.stderr.on('data', (data) => {
-    if (ws.readyState !== WebSocket.OPEN) return;
+    if (ws.readyState !== WebSocket.OPEN || data === "") return;
     ws.send(data);
   });
   process.on('exit', (data) => {
