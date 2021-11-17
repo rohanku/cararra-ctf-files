@@ -1,6 +1,6 @@
 # CararraCTF
 
-A [collection](https://cararra-ctf.netlify.app/) of around 100 challenges centered around algorithms, cybersecurity, and other miscellaneous computer science challenges. Built with React.js, Cloud Firestore, and Node.js and deployed using Netlify. Served a new challenge daily to around 200 total users.
+A [collection](https://cararra-ctf.netlify.app/) of around 100 challenges centered around algorithms, cybersecurity, and other miscellaneous computer science challenges. Built with React.js, Cloud Firestore, and Node.js and deployed using Netlify and Heroku. Served a new challenge daily to around 200 total users.
 
 CararraCTF ran for 5 rounds of 20 challenges each. Archives of previous round sites can be found below.
 - [Round 1](https://r1--cararra-ctf.netlify.app/challenges): Dynamic programming, shortest path algorithms, password cracking, broadcast attacks, XSS, Bash scripts, segment trees.
